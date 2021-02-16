@@ -10,7 +10,7 @@
 <% end %>
 <p><%= notice %></p>
 
-<!--below needs to be changed to _rooms.html.erb-->
+<img class="avatar" src="<%= profile_pic(current_user, 100) %>" onerror="this.onerror=null;this.src='<%= error_profile_pic %>';">
 
 <div>
   <div>
@@ -20,7 +20,7 @@
   <div >
     <div>
       <h4>
-        Welcome to the ChitChat!
+        Welcome to the ChitChat <%= current_user.first_name %>!
       </h4>
       <p>
         You can create or join a room from the sidebar.
