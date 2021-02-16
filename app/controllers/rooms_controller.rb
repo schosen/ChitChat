@@ -1,4 +1,6 @@
 class RoomsController < ApplicationController
+  # the before action loads all the rooms @rooms and @room when applicable
+  before_action :load_entities
   def index
     @rooms = Room.all
   end
