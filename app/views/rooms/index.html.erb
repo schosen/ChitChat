@@ -12,21 +12,19 @@
 
 <!--below needs to be changed to _rooms.html.erb-->
 
-<div>
-<%= link_to new_room_path, class: "btn btn-primary" do %>
-  Create a room
-<% end %>
-</div>
+<div class="row">
+  <div class="col-12 col-md-3">
+    <%= render partial: 'rooms' %>
+  </div>
 
-<% if @rooms.present? %>
-      <nav class="nav flex-column">
-        <% @rooms.each do |room| %>
-          <%= link_to room.name, room_path(room), class: "nav-link room-nav-link" %>
-        <% end %>
-      </nav>
-    <% else %>
-      <div class="text-muted">
-        The are no rooms
-      </div>
-    <% end %>
+  <div class="col">
+    <div class="alert alert-primary">
+      <h4 class="alert-heading">
+        Welcome to the ChitChat!
+      </h4>
+      <p>
+        You can create or join a room from the sidebar.
+      </p>
+    </div>
+  </div>
 </div>
