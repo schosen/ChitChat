@@ -10,8 +10,28 @@
   
     <div class="chat">
       <% @room_messages.each do |room_message| %>
-        <%= room_message.message %>
-        <%= room_message.created_at %>
+
+        <div class="chat-message-container">
+          <div class="row no-gutters">
+            <div class="col-auto text-center">
+              <img src="<%= profile_pic(room_message.user, 100) %>" class="avatar" alt="">
+            </div>
+
+            <div class="col">
+              <div class="message-content">
+                <p class="mb-1">
+                  <%= room_message.message %>
+                </p>
+
+                <div class="text-right">
+                  <small>
+                  <%= room_message.created_at.strftime("%l:%M%P") %>
+                  </small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       <% end %>
     </div>
 
