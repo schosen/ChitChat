@@ -18,4 +18,6 @@ class RoomMessagesController < ApplicationController
   def load_entities
     @room = Room.find params.dig(:room_message, :room_id)
   end
+
+  
 end
