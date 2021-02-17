@@ -1,4 +1,5 @@
 module ApplicationHelper
+  # delete the below after refactoring
   def profile_pic(user, size)
     url = "https://picsum.photos/id/#{1000 + user.id}/#{size}/#{size}"
   end

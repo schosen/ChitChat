@@ -14,7 +14,7 @@
         <div class="chat-message-container">
           <div class="row no-gutters">
             <div class="col-auto text-center">
-              <img src="<%= profile_pic(room_message.user, 100) %>" class="avatar" alt="">
+              <img src="<%=  room_message.user.profile_pic(100) %>" onerror="this.onerror=null;this.src='<%= error_profile_pic %>';" class="avatar" alt="">
             </div>
 
             <div class="col">

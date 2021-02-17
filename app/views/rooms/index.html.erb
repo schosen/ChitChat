@@ -10,7 +10,7 @@
 <% end %>
 <p><%= notice %></p>
 
-<img class="avatar" src="<%= profile_pic(current_user, 100) %>" onerror="this.onerror=null;this.src='<%= error_profile_pic %>';">
+<img class="avatar" src="<%= current_user.profile_pic(100) %>" onerror="this.onerror=null;this.src='<%= error_profile_pic %>';">
 
 <div>
   <div>
