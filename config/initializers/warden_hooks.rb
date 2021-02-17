@@ -7,3 +7,4 @@ Warden::Manager.before_logout do |user, auth, opts|
   scope = opts[:scope]
   auth.cookies.signed["#{scope}.id"] = nil
 end
+#  We add a cookie with the user’s id upon successful sign in and we remove it once the user logs out.
