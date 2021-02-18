@@ -18,4 +18,6 @@ module ApplicationCable
   end
 end
 
-# dentified_by is a connection identifier that can be used to find the specific connection later. Anything marked as an identifier will automatically create a delegate by the same name on any channel instances created off the connection.
+# 3. Here we configure websocket connections
+# In the find_verified_user method we access the cookie that we previously set in the warden hook.
+# identified_by is a connection identifier that can be used to find the specific connection. Anything marked as an identifier will automatically create a delegate by the same name on any channel instances created off the connection.
