@@ -1,23 +1,43 @@
+
 <h1>
   <%= @room.name %>
 </h1>
 
 <div class="row">
   <div class="col-12 col-md-3">
-   <!--add room partial here-->
+    <%= render partial: 'rooms' %>
   </div>
 
   <div class="col">
-    <div class="chat">
+    <div class="chat" data-channel-subscribe="room" data-room-id="<%= @room.id %>">
       <% @room_messages.each do |room_message| %>
-        <%= room_message.message %>
-        <%= room_message.created_at %>
+        <div class="chat-message-container">
+          <div class="row no-gutters">
+            <div class="col-auto text-center">
+              <img src="<%=  room_message.user.profile_pic(100) %>" onerror="this.onerror=null;this.src='<%= error_profile_pic %>';" class="avatar" alt="">
+            </div>
+
+            <div class="col">
+              <div class="message-content">
+                <p class="mb-1">
+                  <%= room_message.message %>
+                </p>
+
+                <div class="text-right">
+                  <small>
+                  <%= room_message.created_at%>
+                  </small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       <% end %>
     </div>
 
-    <%= form_for @room_message, remote: true do |form| %>
+    <%= simple_form_for @room_message, remote: true do |form| %>
       <div class="input-group mb-3">
-        <%= form.text_field :message, as: :string,
+        <%= form.input :message, as: :string,
                                  wrapper: false,
                                  label: false,
                                  input_html: {
@@ -28,7 +48,31 @@
         </div>
       </div>
 
-      <%= form.hidden_field :room_id, as: :hidden %>
+      <%= form.input :room_id, as: :hidden %>
     <% end %>
   </div>
 </div>
+
+
+<!--each new incoming message will clone this snippet of html. see javascripts/channels/room_channels.js-->
+<div class="d-none" data-role="message-template">
+  <div class="chat-message-container">
+    <div class="row no-gutters">
+      <div class="col-auto text-center">
+        <img src="" class="avatar" alt="" data-role="user-avatar">
+      </div>
+
+      <div class="col">
+        <div class="message-content">
+          <p class="mb-1" data-role="message-text"></p>
+
+          <div class="text-right">
+            <small data-role="message-date"></small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--6. here we add some data in the room page in order to use it in our Javascript file to subscribe to the appropriate streams each time we visit a room. We add two data attributes, one defining to which channel we want to subscribe "(data-channel-subscribe="room")" and one defining to which room we are "(data-room-id="<%= @room.id %>)"-->

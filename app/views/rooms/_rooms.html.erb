@@ -1,7 +1,6 @@
 <div>
-  <%= link_to new_room_path, do %>
-    Create a room
-  <% end %>
+  <%= link_to 'Create a room', new_room_path %>
+
 </div>
 
 <% if @rooms.present? %>
@@ -12,6 +11,6 @@
   </nav>
 <% else %>
   <div class="">
-    The are no rooms
+    There are no rooms
   </div>
 <% end %>
