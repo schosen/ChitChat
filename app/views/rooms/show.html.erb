@@ -9,12 +9,12 @@
   </div>
 
   <div class="col">
-    <div class="chat">
+    <div class="chat" data-channel-subscribe="room" data-room-id="<%= @room.id %>">
       <% @room_messages.each do |room_message| %>
         <div class="chat-message-container">
           <div class="row no-gutters">
             <div class="col-auto text-center">
-              <img src="<%=  room_message.user.profile_pic(100) %>" onerror="this.onerror=null;this.src='<%= error_profile_pic %>';" class="avatar" alt="">
+              <img src="<%=  room_message.user.profile_pic %>" onerror="this.onerror=null;this.src='<%= error_profile_pic %>';" class="avatar" alt="">
             </div>
 
             <div class="col">
@@ -53,3 +53,23 @@
   </div>
 </div>
 
+
+<div class="d-none" data-role="message-template">
+  <div class="chat-message-container">
+    <div class="row no-gutters">
+      <div class="col-auto text-center">
+        <img src="" class="avatar" alt="" data-role="user-avatar">
+      </div>
+
+      <div class="col">
+        <div class="message-content">
+          <p class="mb-1" data-role="message-text"></p>
+
+          <div class="text-right">
+            <small data-role="message-date"></small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
