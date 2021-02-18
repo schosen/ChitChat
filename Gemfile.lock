@@ -73,7 +73,6 @@ GEM
       nokogiri (~> 1.8)
     concurrent-ruby (1.1.8)
     crass (1.0.6)
-
     devise (4.7.3)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -114,8 +113,8 @@ GEM
     nio4r (2.5.5)
     nokogiri (1.11.1-x86_64-darwin)
       racc (~> 1.4)
-    popper_js (1.16.0)
     orm_adapter (0.5.0)
+    popper_js (1.16.0)
     public_suffix (4.0.6)
     puma (3.12.6)
     racc (1.5.2)
@@ -152,7 +151,6 @@ GEM
       ffi (~> 1.0)
     redis (4.2.5)
     regexp_parser (2.0.3)
-
     responders (3.0.1)
       actionpack (>= 5.0)
       railties (>= 5.0)
