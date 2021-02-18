@@ -34,6 +34,10 @@
   <p><%= notice %></p>
 
 <img class="avatar" src="<%= current_user.profile_pic(100) %>" onerror="this.onerror=null;this.src='<%= error_profile_pic %>';">
+<h1>Rooms index</h1>
+<%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+
+<img class="avatar" src="<%= current_user.profile_pic %>" onerror="this.onerror=null;this.src='<%= error_profile_pic %>';">
 
     <%if @rooms.present? %>
         <% @rooms.each do |room| %>

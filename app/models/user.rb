@@ -1,10 +1,13 @@
 class User < ApplicationRecord
-  has_secure_password
-  validates :username, presence: true, uniqueness: true
-  validates :email, presence: true, uniqueness: true
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
 
-  def profile_pic(size)
-    url = "https://picsum.photos/id/#{1000 + id}/#{size}/#{size}"
+  validates :username, uniqueness: true, presence: true
+
+  def profile_pic
+    url = "https://picsum.photos/id/#{1000 + id}/100/100"
   end
 
   def error_profile_pic

@@ -2,7 +2,6 @@ module ApplicationCable
   class Connection < ActionCable::Connection::Base
     identified_by :current_user
 
-
     def connect
       self.current_user = find_verified_user
     end
@@ -16,8 +15,7 @@ module ApplicationCable
         reject_unauthorized_connection
       end
     end
-
   end
 end
 
-# Here identified_by is a connection identifier that can be used to find the specific connection later. Note that anything marked as an identifier will automatically create a delegate by the same name on any channel instances created off the connection.
+# dentified_by is a connection identifier that can be used to find the specific connection later. Anything marked as an identifier will automatically create a delegate by the same name on any channel instances created off the connection.
