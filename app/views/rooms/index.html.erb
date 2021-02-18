@@ -33,7 +33,7 @@
 
   <p><%= notice %></p>
 
-<!--below needs to be changed to _rooms.html.erb-->
+<img class="avatar" src="<%= current_user.profile_pic(100) %>" onerror="this.onerror=null;this.src='<%= error_profile_pic %>';">
 
     <%if @rooms.present? %>
         <% @rooms.each do |room| %>
@@ -56,3 +56,4 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>       
   </body>
 </html>
+

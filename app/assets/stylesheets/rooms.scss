@@ -8,6 +8,28 @@
   border-radius: 5px 5px 0 0;
   overflow-y: auto;
 }
+
  .room-title {
    color: #ff5757;
  }
+
+
+.chat-message-container {
+  padding: 5px;
+
+  .avatar {
+    margin: 5px;
+  }
+
+  .message-content {
+    padding: 5px;
+
+    border-radius: 5px;
+    background: lighten(grey, 30%);
+    color: black;
+  }
+
+  & + .chat-message-container {
+    margin-top: 10px;
+  }
+}
