@@ -5,19 +5,18 @@ RSpec.feature "Account login", type: :feature do
     visit "/"
     fill_in "Email", with: "arbnor1@test.com"
     fill_in "Password", with: "test123"
-    click_button "Login"
-    expect(page.current_path).to eq "/sessions"
+    click_button "Log in"
+    expect(page.current_path).to eq "/users/sign_in"
   end
-end
 
-=begin
   scenario "invalid login" do
     visit "/"
-    within_fieldset :log_in do
-      fill_in "Email", with: "arbnor1@test.com"
-      fill_in "Password", with: "wrong-password"
-      click_button "Login"
-    end
-    expect(page).to have_content("Incorrect username or password")
+    fill_in "Email", with: "arbnor1@test.com"
+    fill_in "Password", with: "wrong-password"
+    click_button "Log in"
+    expect(page.current_path).to eq "/users/sign_in"
   end
-=end
+
+  scenario "user doesn't exist to try and login"
+    visit "/"
+end
