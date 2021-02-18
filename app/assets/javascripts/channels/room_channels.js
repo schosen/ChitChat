@@ -20,7 +20,7 @@ $(function () {
           var content = messageTemplate.children().clone(true, true);
           content
             .find('[data-role="user-avatar"]')
-            .attr("src", data.profile_pic);
+            .attr({"src": data.profile_pic_url, "onerror": "this.onerror=null;this.src='<%= error_profile_pic %>';"});
           content.find('[data-role="message-text"]').text(data.message);
           content.find('[data-role="message-date"]').text(data.updated_at);
           $element.append(content);
