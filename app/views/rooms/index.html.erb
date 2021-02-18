@@ -1,31 +1,24 @@
 <h1>Rooms index</h1>
+<%= link_to 'Logout', destroy_user_session_path, method: :delete %>
 
-<% if current_user %>
-  Logged in as <%= current_user.email %>.
-  <%= link_to "Log Out", logout_path %>
-<% else %>
-  <%= link_to "Log In", login_path %> or
-  <%= link_to "Sign Up", signup_path %>
-
-<% end %>
-<p><%= notice %></p>
-
-<!--below needs to be changed to _rooms.html.erb-->
+<img class="avatar" src="<%= current_user.profile_pic %>" onerror="this.onerror=null;this.src='<%= error_profile_pic %>';">
 
 <div>
-<%= link_to new_room_path, class: "btn btn-primary" do %>
-  Create a room
-<% end %>
+  <div>
+    <%= render partial: 'rooms' %>
+  </div>
+
+
+  <div >
+    <div>
+      <h4>
+        Welcome to the ChitChat <%= current_user.first_name %>!
+      </h4>
+      <p>
+        You can create or join a room from the sidebar.
+      </p>
+    </div>
+  </div>
 </div>
 
-<% if @rooms.present? %>
-      <nav class="nav flex-column">
-        <% @rooms.each do |room| %>
-          <%= link_to room.name, room_path(room), class: "nav-link room-nav-link" %>
-        <% end %>
-      </nav>
-    <% else %>
-      <div class="text-muted">
-        There are no rooms
-      </div>
-    <% end %>
+
