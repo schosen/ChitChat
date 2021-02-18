@@ -14,6 +14,20 @@
  *= require_self
  */
 
+ .container{
+     border-style: solid;
+     border-color: rgba(130, 130, 130, 0.694);
+     border-width: 1px;
+     min-width: fit-content;
+     text-align: center;
+     padding: 50px;
+ }
+
+ .btn-danger {
+    background-color: #ff5757 !important;
+    color: white;
+}
+
  body {
     margin: 0;
     font-family: 'Lucida Grande', tahoma,verdana,arial,sans-serif;
@@ -342,5 +356,4 @@
     margin-top: 10px;
     padding-top: 15px;
   }
-  
   
