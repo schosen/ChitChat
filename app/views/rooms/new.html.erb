@@ -8,7 +8,7 @@
         <% if current_user %>
         <ul class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Logged in as <%= current_user.email %> <img class="avatar" src="<%= current_user.profile_pic %>" onerror="this.onerror=null;this.src='<%= error_profile_pic %>';">
+          Logged in as <%= current_user.email %> <img class="avatar" src="<%= current_user.profile_pic(100) %>" onerror="this.onerror=null;this.src='<%= error_profile_pic %>';">
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="#">My profile</a>
