@@ -11,7 +11,7 @@
         <div class="chat-message-container">
           <div class="row no-gutters">
             <div class="col-auto text-center">
-              <img src="<%=  room_message.user.profile_pic %>" onerror="this.onerror=null;this.src='<%= error_profile_pic %>';" class="avatar" alt="">
+              <img src="<%=  room_message.user.profile_pic(100) %>" onerror="this.onerror=null;this.src='<%= error_profile_pic %>';" class="avatar" alt="">
             </div>
 
             <div class="col">
@@ -22,7 +22,7 @@
 
                 <div class="text-right">
                   <small>
-                  <%= room_message.created_at.strftime("%l:%M%P") %>
+                  <%= room_message.created_at%>
                   </small>
                 </div>
               </div>
@@ -55,6 +55,7 @@
 </div>
 
 
+<!--each new incoming message will clone this snippet of html. see javascripts/channels/room_channels.js-->
 <div class="d-none" data-role="message-template">
   <div class="chat-message-container">
     <div class="row no-gutters">
@@ -74,3 +75,5 @@
     </div>
   </div>
 </div>
+
+<!--6. here we add some data in the room page in order to use it in our Javascript file to subscribe to the appropriate streams each time we visit a room. We add two data attributes, one defining to which channel we want to subscribe "(data-channel-subscribe="room")" and one defining to which room we are "(data-room-id="<%= @room.id %>)"-->
