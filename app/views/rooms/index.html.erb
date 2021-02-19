@@ -1,3 +1,9 @@
+
+<br>
+<p><%= notice %></p>
+<div class="typewriter-heading-div">
+  <h1 class="typewriter">Hey <%= current_user.first_name %>, come to chat?</h1>
+
 <h1>Rooms index</h1>
 <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
 
@@ -5,22 +11,26 @@
 
 <img class="avatar" src="<%= current_user.profile_pic(100) %>" onerror="this.onerror=null;this.src='<%= error_profile_pic %>';">
 
-<div>
-  <div>
-    <%= render partial: 'rooms' %>
-  </div>
 
-
-  <div >
-    <div>
-      <h4>
-        Welcome to the ChitChat <%= current_user.first_name %>!
-      </h4>
-      <p>
-        You can create or join a room from the sidebar.
-      </p>
-    </div>
-  </div>
+<br>
+<div class="container">
+  <h1 class="room-header">Open rooms</h1>
+<br>
+    <%if @rooms.present? %>
+        <% @rooms.each do |room| %>
+          <%= link_to room.name, room_path(room), class: "btn btn-outline-secondary btn-lg btn-block" %>
+        <% end %> 
+    <% else %>
+      <br>
+      <br>
+      There are currently no active rooms
+    <% end %>
+    <br>
+    <br>
+    Don't fancy any of those?
+    <br>
+      <%= link_to new_room_path, class: "btn btn-primary" do %>
+        Create a new room
+      <% end %>
 </div>
-
 

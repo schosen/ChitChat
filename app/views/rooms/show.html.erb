@@ -1,12 +1,9 @@
 
-<h1>
-  <%= @room.name %>
-</h1>
-
-<div class="row">
-  <div class="col-12 col-md-3">
-    <%= render partial: 'rooms' %>
-  </div>
+<br>
+<div class="typewriter-heading-div">
+<h1 class="typewriter"> <%= @room.name %> </h1>
+</div>
+<br>
 
   <div class="col">
     <div class="chat" data-channel-subscribe="room" data-room-id="<%= @room.id %>">
@@ -33,24 +30,28 @@
           </div>
         </div>
       <% end %>
+  </div>
+  <br>
+  <%= simple_form_for @room_message, remote: true do |form| %>
+    <div class="input-group mb-3">
+      <%= form.input :message, as: :string,
+                               wrapper: false,
+                               label: false,
+                               placeholder: "your message here",
+                               input_html: {
+                                 class: 'chat-input'
+                               } %>
+      <div class="input-group-append">
+        <%= form.submit "Send", class: 'btn btn-primary chat-input' %>
+      </div>
     </div>
 
-    <%= simple_form_for @room_message, remote: true do |form| %>
-      <div class="input-group mb-3">
-        <%= form.input :message, as: :string,
-                                 wrapper: false,
-                                 label: false,
-                                 input_html: {
-                                   class: 'chat-input'
-                                 } %>
-        <div class="input-group-append">
-          <%= form.submit "Send", class: 'btn btn-primary chat-input' %>
-        </div>
-      </div>
-
-      <%= form.input :room_id, as: :hidden %>
+    <%= form.input :room_id, as: :hidden %>
+  <% end %>
+    <%= link_to new_room_path, class: "btn btn-primary" do %>
+      Bored? Try creating a new room
     <% end %>
-  </div>
+    
 </div>
 
 
