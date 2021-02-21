@@ -45,13 +45,14 @@
         <%= form.submit "Send", class: 'btn btn-primary chat-input' %>
       </div>
     </div>
-
     <%= form.input :room_id, as: :hidden %>
   <% end %>
+
+  <div class="media-preview"></div>
+
     <%= link_to new_room_path, class: "btn btn-primary" do %>
       Bored? Try creating a new room
-    <% end %>
-    
+    <% end %> 
 </div>
 
 
@@ -66,6 +67,8 @@
       <div class="col">
         <div class="message-content">
           <p class="mb-1" data-role="message-text"></p>
+          
+          <img src="" alt="" data-role="message-media-img">
 
           <div class="text-right">
             <small data-role="message-date"></small>

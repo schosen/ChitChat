@@ -18,10 +18,23 @@ $(function () {
       {
         received: function (data) {
           var content = messageTemplate.children().clone(true, true);
-          content
-            .find('[data-role="user-avatar"]')
-            .attr({"src": data.profile_pic_url, "onerror": "this.onerror=null;this.src='<%= error_profile_pic %>';"});
-          content.find('[data-role="message-text"]').text(data.message);
+          var userMessage = data.message;
+          var regex = /(https?:\/\/.*\.(?:png|jpg|jpeg|gif))/i;
+          var text = userMessage;
+
+          // find if message contains image url and put that in a new variable
+          if (userMessage.match(regex)) {
+            var imageUrl = userMessage.match(regex);
+            // new variable with text that doesnt include image url
+            var text = userMessage.replace(imageUrl[0], " ");
+            content.find('[data-role="message-media-img"]').attr("src", imageUrl[0]);
+          } else {
+            content.find('[data-role="message-media-img"]').remove();
+          }
+          
+
+          content.find('[data-role="user-avatar"]').attr({"src": data.profile_pic_url, "onerror": "this.onerror=null;this.src='<%= error_profile_pic %>';"});
+          content.find('[data-role="message-text"]').text(text);
           content.find('[data-role="message-date"]').text(data.updated_at);
           $element.append(content);
           $element.animate({ scrollTop: $element.prop("scrollHeight") }, 1000);
@@ -30,3 +43,7 @@ $(function () {
     );
   });
 });
+
+function showImage(imageUrl) {
+  $(".message-media").html("<img src=" + imageUrl + ">");
+}
