@@ -44,6 +44,3 @@ $(function () {
   });
 });
 
-function showImage(imageUrl) {
-  $(".message-media").html("<img src=" + imageUrl + ">");
-}

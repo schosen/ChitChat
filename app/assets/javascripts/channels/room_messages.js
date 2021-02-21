@@ -54,7 +54,8 @@ function clearMediaPreview() {
 
 // Rendering the image media object
 function showImagePreview(imageUrl) {
-  $(".media-preview").html("<img src=" + imageUrl + ">");
+  heading = "<h5> Media Preview </h5>"
+  $(".media-preview").html( heading +"<img src=" + imageUrl + ">");
 }
 
 // Rendering the video media object
