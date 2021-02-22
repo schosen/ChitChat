@@ -14,7 +14,11 @@
         <div class="chat-message-container">
           <div class="row no-gutters">
             <div class="col-auto text-center">
-              <img src="<%=  room_message.user.profile_pic %>" onerror="this.onerror=null;this.src='<%= error_profile_pic %>';" class="avatar" alt="">
+              <% if current_user.avatar.attached? %>
+                <%= image_tag current_user.avatar, size: 50 %>
+                <% else %>
+                  <%= image_tag "default-profile.png", size: 50 %>
+                <% end %>
             </div>
 
             <div class="col">
