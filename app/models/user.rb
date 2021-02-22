@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_many :rooms
   has_many :messages
   has_one_attached :avatar
+  has_many :room_messages, dependent: :destroy
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable

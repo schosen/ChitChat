@@ -3,3 +3,4 @@ $(function () {
     $(this).find('input[type="text"]').val("");
   });
 });
+//  clears message field after sending a new message
