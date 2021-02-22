@@ -7,7 +7,15 @@
 <h1>Rooms index</h1>
 <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
 
+
+<% if current_user.avatar.attached? %>
+  <%= image_tag current_user.avatar, size: 80 %>
+<% else %>
+  <%= image_tag "default-profile.png", size: 80 %>
+<% end %>
+
 <%= link_to 'Profile page', user_path(current_user) %>
+
 
 <img class="avatar" src="<%= current_user.profile_pic(100) %>" onerror="this.onerror=null;this.src='<%= error_profile_pic %>';">
 
@@ -33,4 +41,3 @@
         Create a new room
       <% end %>
 </div>
-

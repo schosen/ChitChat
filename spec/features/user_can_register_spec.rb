@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'methods'
 
 RSpec.feature "Register account", type: :feature do
   scenario "user can sign up" do
@@ -12,12 +13,7 @@ RSpec.feature "Register account", type: :feature do
     visit "/"
     click_link "Sign up"
     expect(page.current_path).to eq "/users/sign_up"
-    fill_in "user_first_name", with: "Harry"
-    fill_in "user_last_name", with: "Potter"
-    fill_in "user_username", with: "Harry1"
-    fill_in "user_email", with: "harrypotter@test.com"
-    fill_in "user_password", with: "test123"
-    fill_in "user_password_confirmation", with: "test123"
+    user_fill_in
     click_button "Sign up"
     expect(page).to have_content("You can create or join a room from the sidebar.")
   end
@@ -46,17 +42,11 @@ RSpec.feature "Invalid sign up", type: :feature do
     visit "/"
     click_link "Sign up"
     expect(page.current_path).to eq "/users/sign_up"
-    fill_in "user_username", with: "arbnor1"
-    fill_in "user_email", with: "test123@test.au"
-    fill_in "user_password", with: "test123"
-    fill_in "user_password_confirmation", with: "test123"
+    user_log_in
     click_button "Sign up"
     click_link "Logout"
     click_link "Sign up"
-    fill_in "user_username", with: "arbnor1"
-    fill_in "user_email", with: "test123@test.au"
-    fill_in "user_password", with: "test123"
-    fill_in "user_password_confirmation", with: "test123"
+    user_log_in
     click_button "Sign up"
     expect(page).to have_content("Please review the problems below:")
   end

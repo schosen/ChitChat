@@ -16,7 +16,4 @@ RSpec.feature "Account login", type: :feature do
     click_button "Log in"
     expect(page.current_path).to eq "/users/sign_in"
   end
-
-  scenario "user doesn't exist to try and login"
-    visit "/"
 end
