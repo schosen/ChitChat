@@ -18,3 +18,6 @@ class RoomMessagesController < ApplicationController
 
   
 end
+
+# 5. here we broadcast room message to room stream after creating it
+# we added the line RoomChannel.broadcast_to @room, @room_message which will broadcast to the room’s specific stream the @room_message transformed to json via the to_json method.

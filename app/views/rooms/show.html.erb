@@ -1,12 +1,9 @@
 
-<h1>
-  <%= @room.name %>
-</h1>
-
-<div class="row">
-  <div class="col-12 col-md-3">
-    <%= render partial: 'rooms' %>
-  </div>
+<br>
+<div class="typewriter-heading-div">
+<h1 class="typewriter"> <%= @room.name %> </h1>
+</div>
+<br>
 
   <div class="col">
     <div class="chat" data-channel-subscribe="room" data-room-id="<%= @room.id %>">
@@ -14,7 +11,7 @@
         <div class="chat-message-container">
           <div class="row no-gutters">
             <div class="col-auto text-center">
-              <img src="<%=  room_message.user.profile_pic %>" onerror="this.onerror=null;this.src='<%= error_profile_pic %>';" class="avatar" alt="">
+              <img src="<%=  room_message.user.profile_pic(100) %>" onerror="this.onerror=null;this.src='<%= error_profile_pic %>';" class="avatar" alt="">
             </div>
 
             <div class="col">
@@ -25,7 +22,7 @@
 
                 <div class="text-right">
                   <small>
-                  <%= room_message.created_at.strftime("%l:%M%P") %>
+                  <%= room_message.created_at%>
                   </small>
                 </div>
               </div>
@@ -33,27 +30,32 @@
           </div>
         </div>
       <% end %>
+  </div>
+  <br>
+  <%= simple_form_for @room_message, remote: true do |form| %>
+    <div class="input-group mb-3">
+      <%= form.input :message, as: :string,
+                               wrapper: false,
+                               label: false,
+                               placeholder: "your message here",
+                               input_html: {
+                                 class: 'chat-input'
+                               } %>
+      <div class="input-group-append">
+        <%= form.submit "Send", class: 'btn btn-primary chat-input' %>
+      </div>
     </div>
 
-    <%= simple_form_for @room_message, remote: true do |form| %>
-      <div class="input-group mb-3">
-        <%= form.input :message, as: :string,
-                                 wrapper: false,
-                                 label: false,
-                                 input_html: {
-                                   class: 'chat-input'
-                                 } %>
-        <div class="input-group-append">
-          <%= form.submit "Send", class: 'btn btn-primary chat-input' %>
-        </div>
-      </div>
-
-      <%= form.input :room_id, as: :hidden %>
+    <%= form.input :room_id, as: :hidden %>
+  <% end %>
+    <%= link_to new_room_path, class: "btn btn-primary" do %>
+      Bored? Try creating a new room
     <% end %>
-  </div>
+    
 </div>
 
 
+<!--each new incoming message will clone this snippet of html. see javascripts/channels/room_channels.js-->
 <div class="d-none" data-role="message-template">
   <div class="chat-message-container">
     <div class="row no-gutters">
@@ -73,3 +75,5 @@
     </div>
   </div>
 </div>
+
+<!--6. here we add some data in the room page in order to use it in our Javascript file to subscribe to the appropriate streams each time we visit a room. We add two data attributes, one defining to which channel we want to subscribe "(data-channel-subscribe="room")" and one defining to which room we are "(data-room-id="<%= @room.id %>)"-->

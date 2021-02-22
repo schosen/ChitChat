@@ -17,11 +17,14 @@
  .container2{
      border-style: solid;
      border-color: rgba(130, 130, 130, 0.694);
-     border-width: 1px;
+     border-width: 0.5px;
      min-width: fit-content;
      text-align: center;
      margin-top: 10%;
      padding: 50px;
+     background-image: linear-gradient(to bottom right,#c4c4c427, white);
+     box-shadow: 4px 4px #504d4d97;
+     border-radius: 15px;
  }
 
  .center-block {
@@ -34,7 +37,15 @@
     background-color: #ff5757 !important;
     color: white;
 }
+ h1 {
+   color: rgb(63, 63, 63);
+ }
 
+.btn-primary:hover {
+      color: #fff;
+      background-color: #ff57579c !important;
+      border-color: #ff5757 !important;
+  }
  body {
     margin: 0;
     font-family: 'Lucida Grande', tahoma,verdana,arial,sans-serif;
@@ -325,11 +336,30 @@
     cursor: pointer;
   }
   
+.btn-primary {
+  background: -webkit-linear-gradient(#c93838, #ff5757) !important;
+  -webkit-box-shadow: inset 0 1px 1px #fba3a3 !important;
+  border: 1px solid !important;
+  border-color: #a32323 #b43030 #ff2323b7 !important;
+}
+.btn-primary:hover {
+  cursor: pointer !important;
+  opacity: 0.8 !important;
+  transition: 0.3s !important;
+}
+
+.btn-lg:hover {
+  cursor: pointer !important;
+  border-color: white !important;
+  transition: 0.1s !important;
+  background: -webkit-linear-gradient(#c93838, #ff5757) !important;
+}
   .signbut {
     font-size: 19px;
     font-weight: 700;
     letter-spacing: 1px;
     color:#fff;
+    width: fit-content;
     min-width: 194px;
     padding: 7px 20px;
     text-align: center;
@@ -362,5 +392,44 @@
     font-weight: bold;
     margin-top: 10px;
     padding-top: 15px;
+  }
+
+  .typewriter-heading-div {
+    width: fit-content;
+  }
+
+  .new-chat-form {
+    text-align: center;
+  }
+
+  .center-text {
+    text-align: center;
+    margin-right: 18%;
+    margin-left: 18%;
+  }
+
+  .typewriter {
+    color: #ff5757;
+    font-family: monospace;
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: .15em solid orange; /* The typwriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    letter-spacing: .15em; /* Adjust as needed */
+    animation: 
+      typing 3.5s steps(30, end),
+      blink-caret .5s step-end infinite;
+  }
+  
+  /* The typing effect */
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  
+  /* The typewriter cursor effect */
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    20% { border-color: orange }
   }
   

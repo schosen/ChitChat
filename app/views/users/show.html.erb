@@ -1,0 +1,9 @@
+
+<h3>Profile Page<h3>
+<img class="avatar" src="<%= current_user.profile_pic(100) %>" onerror="this.onerror=null;this.src='<%= error_profile_pic %>';">
+<h4>Name: <%= @user.first_name %> <%= @user.last_name %></h4>
+<h4>Username: <%= @user.username %></h4>
+<h4>Email: <%= @user.email%></h4>
+<%= link_to 'Edit Profile', edit_user_registration_path %>
+
+<%= link_to "Back", :back %>

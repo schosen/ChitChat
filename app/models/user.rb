@@ -6,8 +6,10 @@ class User < ApplicationRecord
 
   validates :username, uniqueness: true, presence: true
 
-  def profile_pic
-    url = "https://picsum.photos/id/#{1000 + id}/100/100"
+  has_many :room_messages, dependent: :destroy
+
+  def profile_pic(size)
+    url = "https://picsum.photos/id/#{1000 + id}/#{size}/#{size}"
   end
 
   def error_profile_pic

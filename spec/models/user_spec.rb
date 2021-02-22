@@ -15,8 +15,8 @@ RSpec.describe User, type: :model do
 
   it "is not valid with a repeated username" do
     user = User.new
-    user.username = "Harry"
-    user.password= "test123"
+    user.username = "arbnor1"
+    user.password= "test1234"
     expect(user).to_not be_valid
   end
 
@@ -24,7 +24,8 @@ RSpec.describe User, type: :model do
     user = User.new
     user.username = "Harry"
     user.password = "test123"
-    user.full_name = "Harry Potter"
+    user.first_name = "Harry"
+    user.last_name = "Potter"
     user.email = "harry1@test.com"
     user.password = "test123"
     user.password_confirmation = "test123"
