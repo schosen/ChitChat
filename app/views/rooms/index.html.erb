@@ -16,10 +16,6 @@
 
 <%= link_to 'Profile page', user_path(current_user) %>
 
-
-<img class="avatar" src="<%= current_user.profile_pic(100) %>" onerror="this.onerror=null;this.src='<%= error_profile_pic %>';">
-
-
 <br>
 <div class="container">
   <h1 class="room-header">Open rooms</h1>
@@ -27,7 +23,7 @@
     <%if @rooms.present? %>
         <% @rooms.each do |room| %>
           <%= link_to room.name, room_path(room), class: "btn btn-outline-secondary btn-lg btn-block" %>
-        <% end %> 
+        <% end %>
     <% else %>
       <br>
       <br>
