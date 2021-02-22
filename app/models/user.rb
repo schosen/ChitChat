@@ -1,18 +1,28 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  has_many :rooms
+  has_many :messages
+  has_one_attached :avatar
+  has_many :room_messages, dependent: :destroy
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
   validates :username, uniqueness: true, presence: true
 
-  has_many :room_messages, dependent: :destroy
+  #def user_avatar(user_id)
+  #  user = User.find!(user_id)
+  #  if user.avatar.attached?
+      #  image_tag user.avatar
+  #  else
+      #  self.avatar.attach(io: File.open(Rails.root.join("app", "assets", "images", "default-profile.png")), filename: 'default-profile.png' , content_type: "image/png")
+  #  end
+  #end
 
-  def profile_pic(size)
-    url = "https://picsum.photos/id/#{1000 + id}/#{size}/#{size}"
-  end
-
-  def error_profile_pic
-    url = "https://www.kirkham-legal.co.uk/wp-content/uploads/2017/02/profile-placeholder.png"
-  end
+  #def add_default_avatar
+  #  unless avatar.attached?
+    #  self.avatar.attach(io: File.open(Rails.root.join("app", "assets", "images", "default-profile.png")), filename: 'default-profile.png' , content_type: "image/png")
+    #end
+  #end
 end
