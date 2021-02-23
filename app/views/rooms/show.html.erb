@@ -21,8 +21,10 @@
             </div>
 
             <div class="col">
+              
               <div class="message-content">
-                
+                <p style="font-weight:bold;"> <%= current_user.username %></p>
+
                   <% regex = /(https?:\/\/.*\.(?:png|jpg|jpeg|gif))/i %>
                   <% if room_message.message.match(regex)%>
                     <% img_url = room_message.message.match(regex)%>
@@ -81,6 +83,7 @@
 
       <div class="col">
         <div class="message-content">
+          <p style="font-weight:bold;" class="mb-1" data-role="message-username"></p>
           <p class="mb-1" data-role="message-text"></p>
           
           <img src="" alt="" data-role="message-media-img">

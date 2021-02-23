@@ -4,7 +4,7 @@ class RoomMessage < ApplicationRecord
 
   # merge profile pic to json representation of the RoomMessage model
   def as_json(options)
-    super(options).merge(profile_pic_url: user.profile_pic(100))
+    super(options).merge(username: user.username)
   end
 
   def created_at

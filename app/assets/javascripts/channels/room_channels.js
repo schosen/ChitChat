@@ -33,7 +33,8 @@ $(function () {
           }
           
 
-          content.find('[data-role="user-avatar"]').attr({"src": data.profile_pic_url, "onerror": "this.onerror=null;this.src='<%= error_profile_pic %>';"});
+          // content.find('[data-role="user-avatar"]').attr({"src": data.profile_pic_url, "onerror": "this.onerror=null;this.src='<%= error_profile_pic %>';"});
+          content.find('[data-role="message-username"]').text(data.username);
           content.find('[data-role="message-text"]').text(text);
           content.find('[data-role="message-date"]').text(data.updated_at);
           $element.append(content);
