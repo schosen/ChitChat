@@ -25,7 +25,28 @@
      background-image: linear-gradient(to bottom right,#c4c4c427, white);
      box-shadow: 4px 4px #504d4d97;
      border-radius: 15px;
+     align-self: middle;
  }
+
+
+ .left-container{
+  border-style: solid;
+  border-color: rgba(130, 130, 130, 0.694);
+  border-width: 0.5px;
+  min-width: fit-content;
+  max-width: 40%;
+  text-align: left;
+  padding: 50px;
+  margin-left: 10px;
+  background-image: linear-gradient(to bottom right,#c4c4c427, white);
+  box-shadow: 4px 4px #504d4d97;
+  border-radius: 15px;
+  align-self: left;
+}
+
+.left-padding {
+  margin-left: 10px;
+}
 
  .center-block {
   display: block;
@@ -33,10 +54,6 @@
   margin-right: auto;
 }
 
- .btn-danger {
-    background-color: #ff5757 !important;
-    color: white;
-}
  h1 {
    color: rgb(63, 63, 63);
  }
@@ -79,8 +96,6 @@
     color:#fff;
     -webkit-font-smoothing: antialiased;
   }
-  
-
   
   #button {
     position:relative;
@@ -396,6 +411,7 @@
 
   .typewriter-heading-div {
     width: fit-content;
+    margin-left: 10px;
   }
 
   .new-chat-form {
@@ -406,6 +422,10 @@
     text-align: center;
     margin-right: 18%;
     margin-left: 18%;
+  }
+
+  .small-field {
+    max-width: 40%;
   }
 
   .typewriter {
@@ -419,6 +439,14 @@
     animation: 
       typing 3.5s steps(30, end),
       blink-caret .5s step-end infinite;
+  }
+
+  .header-text {
+    color: #ff5757;
+  }
+
+  .link-text {
+    color: grey;
   }
   
   /* The typing effect */
