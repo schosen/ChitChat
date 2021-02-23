@@ -2,8 +2,16 @@
 <br>
 <p><%= notice %></p>
 <div class="typewriter-heading-div">
+
   <h1 class="typewriter text-left">Hey <%= current_user.first_name %>, come to chat?</h1>
 </div>  
+
+<% if current_user.avatar.attached? %>
+  <%= image_tag current_user.avatar, size: 80 %>
+<% else %>
+  <%= image_tag "default-profile.png", size: 80 %>
+<% end %>
+
 <br>
 <div class="container">
   <h1 class="room-header">Open rooms</h1>
@@ -11,7 +19,7 @@
     <%if @rooms.present? %>
         <% @rooms.each do |room| %>
           <%= link_to room.name, room_path(room), class: "btn btn-outline-secondary btn-lg btn-block" %>
-        <% end %> 
+        <% end %>
     <% else %>
       <br>
       <br>
@@ -25,4 +33,3 @@
         Create a new room
       <% end %>
 </div>
-

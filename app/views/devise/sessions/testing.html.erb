@@ -1,0 +1,76 @@
+<div id="content">
+  
+  <div id="leftbod">
+  
+  
+  <div class="homepage-logo">
+  <img src="https://i.imgur.com/XJ08cL4.png"  alt="logo">
+  </div>
+  <h1 class="tagline">Chat with friends, old and new on ChitChat!</h1>
+  
+  
+  
+  
+  
+  <div class="leftbar">
+  <img src="https://fbcdn-dragon-a.akamaihd.net/hphotos-ak-xap1/t39.2365-6/851558_160351450817973_1678868765_n.png " alt="" class="iconwrap fb1"/>
+  <div class="fb1">
+  
+  </div> 
+  </div> 
+  
+  
+  </div>
+  
+  <div id="rightbod">
+  <div class="signup bolder">Come in and chat!</div>
+  
+  <div class="login-form">
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="formbox">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+  
+    <div class="formbox">
+      <%= f.label :password %><br />
+      <%= f.password_field :password, autocomplete: "current-password" %>
+    </div>
+  
+    <% if devise_mapping.rememberable? %>
+      <div class="field">
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me %>
+      </div>
+    <% end %>
+  
+
+    <%= f.submit "Log in", class: "signbut bolder" %>
+
+  <% end %>
+
+  <div class="formbox">
+  <input type="text" class="inputbody in1" placeholder="Email address">
+  </div>
+  
+  <div class="formbox">
+  <input type="text" class="inputbody in1" placeholder="Password">
+  </div>
+  
+  
+  
+  
+  <div class="formbox">
+  <button type="submit" class="signbut bolder">Login</button>
+  </div>
+  
+  </div>
+  <div class="formbox">
+  <button type="submit" class="signbut bolder">Create an account</button>
+  </div>
+  </div>
+  </div>
+
+
+
+<%= render "devise/shared/links" %>

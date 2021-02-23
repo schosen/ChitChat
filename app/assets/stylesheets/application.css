@@ -14,18 +14,20 @@
  *= require_self
  */
 
- .container{
+ .container2{
      border-style: solid;
      border-color: rgba(130, 130, 130, 0.694);
      border-width: 0.5px;
      min-width: fit-content;
      text-align: center;
+     margin-top: 10%;
      padding: 50px;
      background-image: linear-gradient(to bottom right,#c4c4c427, white);
      box-shadow: 4px 4px #504d4d97;
      border-radius: 15px;
      align-self: middle;
  }
+
 
  .left-container{
   border-style: solid;
@@ -44,6 +46,12 @@
 
 .left-padding {
   margin-left: 10px;
+}
+
+ .center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
  h1 {
@@ -87,11 +95,6 @@
     margin: 0;
     color:#fff;
     -webkit-font-smoothing: antialiased;
-  }
-  
-  .logowrapper {
-    display: block;
-    padding: 30px 0;
   }
   
   #button {
@@ -159,11 +162,13 @@
 
   .homepage-logo {
     display: block;
-    margin-left: 99px;
+    margin: auto;
+    
+    /*margin-left: 99px;
+    width: 50%;
     margin-right: 99px;
     padding-bottom:40px;
     padding-top:70px;
-    /*width: 50%;
     position:relative;
     justify-content:center;*/
 
@@ -393,6 +398,7 @@
       border-width: 1px;
       border-color: #999;
       border-style: solid;
+      padding: 10px;
   }
   .create {
     border-top: 1px solid #a0a9c0;
