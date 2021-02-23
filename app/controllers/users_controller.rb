@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  has_one_attached :avatar
 
   def index
     @users = User.all

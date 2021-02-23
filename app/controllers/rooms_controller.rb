@@ -37,6 +37,12 @@ class RoomsController < ApplicationController
     @room_messages = @room.room_messages.includes(:user)
   end
 
+  def destroy
+    @room.destroy
+    flash[:success] = "Room was successfully deleted"
+    redirect_back fallback_location: root_path
+  end
+
   protected
 
   def load_entities
