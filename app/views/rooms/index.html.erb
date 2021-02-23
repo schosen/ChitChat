@@ -2,16 +2,8 @@
 <br>
 <p><%= notice %></p>
 <div class="typewriter-heading-div">
-  <h1 class="typewriter">Hey <%= current_user.first_name %>, come to chat?</h1>
-
-<h1>Rooms index</h1>
-<%= link_to 'Logout', destroy_user_session_path, method: :delete %>
-
-<%= link_to 'Profile page', user_path(current_user) %>
-
-<img class="avatar" src="<%= current_user.profile_pic(100) %>" onerror="this.onerror=null;this.src='<%= error_profile_pic %>';">
-
-
+  <h1 class="typewriter text-left">Hey <%= current_user.first_name %>, come to chat?</h1>
+</div>  
 <br>
 <div class="container">
   <h1 class="room-header">Open rooms</h1>

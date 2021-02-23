@@ -1,9 +1,18 @@
 
-<h3>Profile Page<h3>
-<img class="avatar" src="<%= current_user.profile_pic(100) %>" onerror="this.onerror=null;this.src='<%= error_profile_pic %>';">
-<h4>Name: <%= @user.first_name %> <%= @user.last_name %></h4>
-<h4>Username: <%= @user.username %></h4>
-<h4>Email: <%= @user.email%></h4>
-<%= link_to 'Edit Profile', edit_user_registration_path %>
+<br>
+<div class="left-padding">
+    <img class="avatar" src="<%= current_user.profile_pic(500) %>" onerror="this.onerror=null;this.src='<%= error_profile_pic %>';">
+    <h1 class="header-text"><%= @user.first_name %> <%= @user.last_name %></h1>
 
-<%= link_to "Back", :back %>
+        <% if @user.id == current_user.id %>
+            <%= link_to 'Edit bio', users_path , class: "link-text"%>
+        <%end%>
+
+        | <%= link_to "Back", :back, class: "link-text" %>
+</div>
+<br>
+<br>
+    <div class="left-container">
+        <h5> About me... </h5>
+        <h4><%= current_user.bio %></h4>
+    </div>
