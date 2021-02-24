@@ -7,7 +7,7 @@ RSpec.feature "Room", type: :feature do
     fill_in "user_email", with: "test@test.com"
     fill_in "user_password", with: "test123"
     click_button "Log in"
-    
+
     click_button "Create a new room"
     fill_in "room_name", with: "My room"
     click_button "Create room"
