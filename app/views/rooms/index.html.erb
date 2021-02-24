@@ -4,7 +4,6 @@
 <div class="typewriter-heading-div">
   <h1 class="typewriter">Hey <%= current_user.first_name %>, come to chat?</h1>
 
-<h1>Rooms index</h1>
 <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
 
 
@@ -16,7 +15,6 @@
 
 <%= link_to 'Profile page', user_path(current_user) %>
 
-
 <br>
 <div class="container">
   <h1 class="room-header">Open rooms</h1>
@@ -24,6 +22,8 @@
     <%if @rooms.present? %>
         <% @rooms.each do |room| %>
           <%= link_to room.name, room_path(room), class: "btn btn-outline-secondary btn-lg btn-block" %>
+          <%= link_to 'Delete', room_path(room), method: :delete, data: { confirm: 'Are you sure?' } %>
+
         <% end %>
     <% else %>
       <br>

@@ -11,6 +11,7 @@
         <div class="chat-message-container">
           <div class="row no-gutters">
             <div class="col-auto text-center">
+            <!--avatar goes here-->
 
              <% post_user_avatar = room_message.user.avatar%>
               <% if post_user_avatar.attached? %>
@@ -18,12 +19,11 @@
               <% else %>
                 <%= image_tag "default-profile.png", size: 50 %>
               <% end %>
-
             </div>
 
-            <div class="col">
+            <div class="col">           
               <div class="message-content">
-
+                <p style="font-weight:bold;"> <%= room_message.user.username %></p>
                   <% regex = /(https?:\/\/.*\.(?:png|jpg|jpeg|gif))/i %>
                   <% if room_message.message.match(regex)%>
                     <% img_url = room_message.message.match(regex)%>
@@ -77,15 +77,17 @@
   <div class="chat-message-container">
     <div class="row no-gutters">
       <div class="col-auto text-center">
-        <img src="" alt="" data-role="message-media-img">
-
+      <img src="" alt="" data-role="user-avatar" style="width: 50px; height: 50px;">
       </div>
 
       <div class="col">
         <div class="message-content">
+          <p style="font-weight:bold;" class="mb-1" data-role="message-username"></p>
           <p class="mb-1" data-role="message-text"></p>
 
           <img src="" alt="" data-role="message-media-img">
+
+
 
           <div class="text-right">
             <small data-role="message-date"></small>
@@ -97,3 +99,6 @@
 </div>
 
 <!--6. here we add some data in the room page in order to use it in our Javascript file to subscribe to the appropriate streams each time we visit a room. We add two data attributes, one defining to which channel we want to subscribe "(data-channel-subscribe="room")" and one defining to which room we are "(data-room-id="<%= @room.id %>)"-->
+
+<%= link_to "Back", :back %>
+
