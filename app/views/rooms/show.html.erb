@@ -18,7 +18,7 @@
             <div class="col">
               
               <div class="message-content">
-                <p style="font-weight:bold;"> <%= current_user.username %></p>
+                <p style="font-weight:bold;"> <%= room_message.user.username %></p>
 
                   <% regex = /(https?:\/\/.*\.(?:png|jpg|jpeg|gif))/i %>
                   <% if room_message.message.match(regex)%>
