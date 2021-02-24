@@ -23,6 +23,7 @@ $(function () {
           var text = userMessage;
 
           // find if message contains image url and put that in a new variable
+
           if (userMessage.match(regex)) {
             var imageUrl = userMessage.match(regex);
             // new variable with text that doesnt include image url
@@ -33,7 +34,7 @@ $(function () {
           }
           
 
-          content.find('[data-role="user-avatar"]').attr({"src": data.profile_pic_url, "onerror": "this.onerror=null;this.src='<%= error_profile_pic %>';"});
+          content.find('[data-role="user-avatar"]').attr("src", data.avatar_url);
           content.find('[data-role="message-text"]').text(text);
           content.find('[data-role="message-date"]').text(data.updated_at);
           $element.append(content);

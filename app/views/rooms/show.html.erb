@@ -12,9 +12,9 @@
           <div class="row no-gutters">
             <div class="col-auto text-center">
 
-             <% current_user_avatar = current_user.user_avatar(current_user.id)%>
-              <% if current_user_avatar.attached? %>
-                <%= image_tag current_user.user_avatar(current_user.id), size: 50 %>
+             <% post_user_avatar = room_message.user.avatar%>
+              <% if post_user_avatar.attached? %>
+                <%= image_tag post_user_avatar, size: 50 %>
               <% else %>
                 <%= image_tag "default-profile.png", size: 50 %>
               <% end %>
@@ -71,13 +71,12 @@
     <% end %> 
 </div>
 
-
 <!--each new incoming message will clone this snippet of html. see javascripts/channels/room_channels.js-->
 <div class="d-none" data-role="message-template">
   <div class="chat-message-container">
     <div class="row no-gutters">
       <div class="col-auto text-center">
-        <img src="" alt="" data-role="message-media-img">
+        <img src="" alt="" data-role="user-avatar" style="width: 50px;">
 
       </div>
 
