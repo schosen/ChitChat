@@ -13,3 +13,8 @@ def user_fill_in
   fill_in "user_password", with: "test123"
   fill_in "user_password_confirmation", with: "test123"
 end
+
+def test_email
+  fill_in "user_mmail", with: "test@test.com"
+  fill_in "user_password", with: "test123"
+end

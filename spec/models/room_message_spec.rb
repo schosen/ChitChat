@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe RoomMessage, type: :model do
   it "is not valid without valid user" do
     new_message = RoomMessage.new
-    new_message.content = "Hello World!"
+    new_message.message = "Hello World!"
     expect(new_message).not_to be_valid
   end
 
@@ -15,8 +15,11 @@ RSpec.describe RoomMessage, type: :model do
 
   it "is valid with valid attributes" do
     new_message = RoomMessage.new
-    new_message.user_id = "1"
-    new_message.content = "Hello World!"
+    user.id = User.new
+    room.id = Room.new
+    user.id = "1"
+    room.id = "1"
+    new_message.message = "Hello World!"
     expect(new_message).to be_valid
   end
 end
