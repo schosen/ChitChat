@@ -15,8 +15,10 @@ RSpec.describe RoomMessage, type: :model do
 
   it "is valid with valid attributes" do
     new_message = RoomMessage.new
-    id = User.new
-    room_id = Room.new
+    user.id = User.new
+    room.id = Room.new
+    user.id = "1"
+    room.id = "1"
     new_message.message = "Hello World!"
     expect(new_message).to be_valid
   end
