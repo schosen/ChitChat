@@ -11,9 +11,6 @@ class RoomMessage < ApplicationRecord
     super(options).merge(profile_pic_url: user.user_avatar(user.id))
   end
 
-
-
-
   def created_at
     attributes['created_at'].strftime("%d %B, %l:%M%P")
   end

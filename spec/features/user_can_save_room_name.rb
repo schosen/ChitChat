@@ -8,9 +8,9 @@ RSpec.feature "Name a chat room", type: :feature do
     expect(page.current_path).to eq "/users/sign_up"
     user_log_in
     click_button "Sign up"
-    click_link "Create a room"
+    click_link "Create a new room"
     fill_in "room_name", with: "Hi!"
-    click_button "Save"
+    click_button "Create room"
     expect(page).to have_content("Hi!")
   end
 end
