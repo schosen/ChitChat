@@ -22,6 +22,8 @@ $(function () {
           var regex = /(https?:\/\/.*\.(?:png|jpg|jpeg|gif))/i;
           var text = userMessage;
 
+
+
           // find if message contains image url and put that in a new variable
           if (userMessage.match(regex)) {
             var imageUrl = userMessage.match(regex);
@@ -32,6 +34,7 @@ $(function () {
             content.find('[data-role="message-media-img"]').remove();
           }
           
+          console.log(data.username);
 
           // content.find('[data-role="user-avatar"]').attr({"src": data.profile_pic_url, "onerror": "this.onerror=null;this.src='<%= error_profile_pic %>';"});
           content.find('[data-role="user-avatar"]').attr("src", data.avatar_url);

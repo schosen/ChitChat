@@ -12,13 +12,18 @@
           <div class="row no-gutters">
             <div class="col-auto text-center">
             <!--avatar goes here-->
-            <img src="" class="avatar" alt="" data-role="user-avatar">
+             <% post_user_avatar = room_message.user.avatar%>
+              <% if post_user_avatar.attached? %>
+                <%= image_tag post_user_avatar, size: 50 %>
+              <% else %>
+                <%= image_tag "default-profile.png", size: 50 %>
+              <% end %>
             </div>
 
             <div class="col">
               
               <div class="message-content">
-                <p style="font-weight:bold;"> <%= current_user.username %></p>
+                <p style="font-weight:bold;"> <%= room_message.user.username %></p>
 
                   <% regex = /(https?:\/\/.*\.(?:png|jpg|jpeg|gif))/i %>
                   <% if room_message.message.match(regex)%>
