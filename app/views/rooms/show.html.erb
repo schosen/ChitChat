@@ -11,7 +11,7 @@
         <div class="chat-message-container">
 
           <!--current user messages-->
-           <% if room_message.user_id === current_user.id%> 
+           <% if room_message.user_id == current_user.id%> 
             <div class=" mine messages"> 
               <!--avatar-->
               <div class="avatar">
@@ -49,7 +49,7 @@
 
             </div>
 
-            <% end %>
+            <% else %>
 
             <!--all other user messages-->
 
@@ -91,7 +91,7 @@
             </div>
 
 
-
+          <% end %>
 
 
           </div>
@@ -130,13 +130,12 @@
 <!--each new incoming message will clone this snippet of html. see javascripts/channels/room_channels.js-->
 <div class="d-none" data-role="message-template">
   <div class="chat-message-container">
-    <div class=" mine messages">
+    <div class="<%= current_user.username == @room_messages.last().user.username ? " mine messages" : "yours messages" %>">
       <div class="avatar">
       <img class="rounded-circle" src="" alt="" data-role="user-avatar" style="width: 50px; height: 50px;">
       </div>
 
       <br>
-
 
       <div class="message">
           <p style="font-weight:bold;" class="mb-1" data-role="message-username"></p>
