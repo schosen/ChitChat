@@ -10,6 +10,7 @@
       <% @room_messages.each do |room_message| %>
         <div class="chat-message-container">
 
+
           <!--current user messages-->
            <% if room_message.user_id == current_user.id%> 
             <div class=" mine messages"> 
@@ -116,7 +117,6 @@
   <% end %>
 
   <div class="media-preview"></div>
-
     <%= link_to new_room_path, class: "btn btn-primary" do %>
       Bored? Try creating a new room
     <% end %>
@@ -130,9 +130,11 @@
 <!--each new incoming message will clone this snippet of html. see javascripts/channels/room_channels.js-->
 <div class="d-none" data-role="message-template">
   <div class="chat-message-container">
+
     <div class="<%= current_user.username == @room_messages.last().user.username ? " mine messages" : "yours messages" %>">
       <div class="avatar">
       <img class="rounded-circle" src="" alt="" data-role="user-avatar" style="width: 50px; height: 50px;">
+
       </div>
 
       <br>

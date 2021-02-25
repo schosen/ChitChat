@@ -11,6 +11,8 @@ class User < ApplicationRecord
 
   validates :username, uniqueness: true, presence: true
 
+  before_create :add_default_avatar
+
   #def user_avatar(user_id)
    #user = User.find(user_id)
   # if user.avatar.attached?
@@ -21,9 +23,9 @@ class User < ApplicationRecord
 #  end
 
 
-  #def add_default_avatar
-  #  unless avatar.attached?
-    #  self.avatar.attach(io: File.open(Rails.root.join("app", "assets", "images", "default-profile.png")), filename: 'default-profile.png' , content_type: "image/png")
-    #end
-  #end
+  def add_default_avatar
+   unless avatar.attached?
+     self.avatar.attach(io: File.open(Rails.root.join("app", "assets", "images", "default-profile.png")), filename: 'default-profile.png' , content_type: "image/png")
+    end
+  end
 end

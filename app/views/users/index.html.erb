@@ -1,2 +1,25 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<br><br>
+<div class="container">
+  <h2 align="center" class="header-text"> Make your profile stand out </h2>
+  <br>
+
+  <div align="center">
+    <div class="c-top-container">
+      <%= form_for(current_user, url: update_profile_path, method: 'post') do |f| %>
+        <div class="c-input">
+          <h4><%= f.label :bio %></h4>
+            <br>
+            <div class="small-field">
+             <textarea <%= f.text_field :bio, class:"form-control" %> </textarea>
+            </div> 
+        </div>
+      <br>
+          <div class="actions">
+            <button class="btn btn-primary"<%= f.submit %>Save</button>
+          </div>
+      <br>
+      <% end %>
+    </div>
+  </div>
+</div>
+             

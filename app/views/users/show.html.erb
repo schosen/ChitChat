@@ -1,9 +1,25 @@
 
-<h3>Profile Page<h3>
+<div class="container">
+<div class="row align-items-center">
+<div class="col">
+    <% if @user.avatar.attached? %>
+        <%= image_tag @user.avatar, class: "img-thumbnail" %>
+    <% else %>
+        <%= image_tag "default-profile.png", class: "img-thumbnail"%>
+    <% end %>
+    <h1 class="header-text2"><%= @user.first_name %> <%= @user.last_name %></h1>
 
-<h4>Name: <%= @user.first_name %> <%= @user.last_name %></h4>
-<h4>Username: <%= @user.username %></h4>
-<h4>Email: <%= @user.email%></h4>
-<%= link_to 'Edit Profile', edit_user_registration_path %>
+        <% if @user.id == current_user.id %>
+            <%= link_to 'Edit bio', users_path , class: "link-text"%>
+        <%end%>
 
-<%= link_to "Back", :back %>
+        | <%= link_to "Back", :back, class: "link-text" %>
+</div>
+<div class="col">
+<div class="left-container"
+        <h5> About me... </h5>
+        <h4><%= current_user.bio %></h4>
+</div>
+</div>
+</div>
+</div>
