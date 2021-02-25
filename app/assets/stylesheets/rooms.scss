@@ -1,17 +1,62 @@
 // Place all the styles related to the Rooms controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.avatar {
+  position: relative;
+}
 .chat {
-  border: 1px solid lighten(grey, 40%);
-  background: lighten(grey, 40%);
+
   height: 50vh;
-  border-radius: 5px 5px 0 0;
+  // border-radius: 5px 5px 0 0;
   overflow-y: auto;
+
+  border: solid 1px #EEE;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
 }
 
- .room-greeting {
-   color: #ff5757;
- }
+.messages {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.message {
+  border-radius: 20px;
+  padding: 8px 15px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  display: inline-block;
+}
+
+.mine {
+  align-items: flex-end;
+}
+
+.mine .message {
+  color: white;
+  margin-left: 25%;
+  background: linear-gradient(to bottom, #00D0EA 0%, #0085D1 100%);
+  background-attachment: fixed;
+  position: relative;
+}
+
+.yours {
+  align-items: flex-start;
+}
+
+.yours .message {
+  margin-right: 25%;
+  background-color: #eee;
+  position: relative;
+}
+
+.room-greeting {
+  color: #ff5757;
+}
 
  .room-header {
   color: #555555;
@@ -19,21 +64,19 @@
 
 
 .chat-message-container {
-  padding: 5px;
+  // padding: 5px;
 
-  .avatar {
-    margin: 5px;
-  }
+  // .message-content {
+  //   padding: 5px;
 
-  .message-content {
-    padding: 5px;
+  //   border-radius: 5px;
+  //   background: lighten(grey, 30%);
+  //   color: black;
+  // }
 
-    border-radius: 5px;
-    background: lighten(grey, 30%);
-    color: black;
-  }
-
-  & + .chat-message-container {
-    margin-top: 10px;
-  }
+  // & + .chat-message-container {
+  //   margin-top: 10px;
+  // }
 }
+
+
