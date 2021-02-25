@@ -14,3 +14,7 @@
 //= require activestorage
 //= require jquery3
 //= require_tree .
+
+$(document).ready(function() {
+    $(".emoji").emojioneArea()
+});

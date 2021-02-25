@@ -12,45 +12,7 @@
 
 
           <!--current user messages-->
-           <% if room_message.user_id == current_user.id%> 
-            <div class=" mine messages"> 
-              <!--avatar-->
-              <div class="avatar">
-                <% post_user_avatar = room_message.user.avatar%>
-                  <% if post_user_avatar.attached? %>
-                    <%= image_tag post_user_avatar, size: 50, class: "rounded-circle" %>
-                  <% else %>
-                    <%= image_tag "default-profile.png", size: 50, class: "rounded-circle" %>
-                  <% end %>
-              </div>
-
-              <br>
-
-              <div class="message">
-                <p style="font-weight:bold;"> <%= room_message.user.username %></p>
-                  <% regex = /(https?:\/\/.*\.(?:png|jpg|jpeg|gif))/i %>
-                  <% if room_message.message.match(regex)%>
-                    <% img_url = room_message.message.match(regex)%>
-                    <% text = room_message.message.gsub(img_url[0], " ")%>
-                    <p> <%= text %></p>
-                    <%= renderImage(img_url).html_safe %>
-                  <% else %>
-                    <p class="mb-1">
-                      <%= room_message.message %>
-                    </p>
-                  <% end %>
-              </div>
-
-                <div class="text-left">
-                  <small>
-                  <%= room_message.created_at%>
-                  </small>
-                </div>
-
-
-            </div>
-
-            <% else %>
+           
 
             <!--all other user messages-->
 
@@ -87,14 +49,7 @@
                   <%= room_message.created_at%>
                   </small>
                 </div>
-
-
             </div>
-
-
-          <% end %>
-
-
           </div>
 
       <% end %>
@@ -131,7 +86,7 @@
 <div class="d-none" data-role="message-template">
   <div class="chat-message-container">
 
-    <div class="<%= current_user.username == @room_messages.last().user.username ? " mine messages" : "yours messages" %>">
+    <div class="yours messages">
       <div class="avatar">
       <img class="rounded-circle" src="" alt="" data-role="user-avatar" style="width: 50px; height: 50px;">
 
