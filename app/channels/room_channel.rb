@@ -4,6 +4,8 @@ class RoomChannel < ApplicationCable::Channel
     room = Room.find params[:room]
     stream_for room
   end
+
+
 end
 
 # 4. Here we create a room channel. A channel encapsulates a logical unit of work, similar to what a controller does in a regular MVC setup.

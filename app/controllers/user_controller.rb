@@ -1,3 +1,4 @@
-class UserController > ApplicationRecord
-    
+class UsersController < ApplicationRecord
+
 end
+

@@ -5,9 +5,9 @@ class RoomMessage < ApplicationRecord
 
   # merge profile pic to json representation of the RoomMessage model
   def as_json(options)
-    h = super(options)
+    h = super(options).merge(username: user.username)
     h[:avatar_url] = Rails.application.routes.url_helpers.rails_blob_path(user.avatar)
-    p h
+    h
   end
 
   def created_at
