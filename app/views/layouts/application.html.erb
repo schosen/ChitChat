@@ -30,7 +30,14 @@
       <span class="navbar-text">
         <% if current_user %>
           <ul class="nav-item dropdown">
+          <% if current_user.avatar.attached? %>
+              <% user_pic = image_tag current_user.avatar, size: 30, class: "avatar" %>
+            <% else %>
+              <% user_pic = image_tag "default-profile.png", size: 30, class: "avatar" %>
+            <% end %>
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+              Logged in as <%= current_user.email %> <%=user_pic%>
 
               <% if current_user.avatar.attached? %>
                 <% user_pic = image_tag current_user.avatar, size: 30, class: "avatar" %>
@@ -38,12 +45,11 @@
                 <% user_pic = image_tag "default-profile.png", size: 30 %>
               <% end %>
               Logged in as <%= current_user.email %><%=user_pic%>
-   
 
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="#">My profile</a>
-              <a class="dropdown-item" href="#">Edit account</a>
+              <a class="dropdown-item" <%= link_to 'Profile page', user_path(current_user) %></a>
+              <a class="dropdown-item" <%= link_to 'Edit Account', edit_user_registration_path %></a>
               <a class="dropdown-item" <%= link_to 'Logout', destroy_user_session_path, method: :delete %></a>
             </div>
           </ul>

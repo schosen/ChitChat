@@ -1,7 +1,8 @@
 Rails.application.routes.default_url_options[:host] = "http://localhost:3000/"
 Rails.application.routes.draw do
   devise_for :users
-  resources :users, only: [:show]
+  resources :users#, only: [:show]
+  post '/update_profile' => 'users#update_profile'
 
   resources :room_messages
   resources :rooms
