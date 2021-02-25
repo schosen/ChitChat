@@ -1,4 +1,4 @@
-
+<div class="container">
 <br>
 <p><%= notice %></p>
 <div class="typewriter-heading-div">
@@ -6,10 +6,9 @@
   <h1 class="typewriter text-left">Hey <%= current_user.first_name %>, come to chat?</h1>
 </div>  
 
-
 <br>
 <div class="container">
-  <h1 class="room-header">Open rooms</h1>
+  <h1 class="signup bolder">Open rooms</h1>
 <br>
     <%if @rooms.present? %>
         <% @rooms.each do |room| %>
@@ -24,9 +23,11 @@
     <% end %>
     <br>
     <br>
-    Don't fancy any of those?
-    <br>
+    <p class="tagline">Don't fancy any of those?</p>
+    <div class= "tagline">
       <%= link_to new_room_path, class: "btn btn-primary" do %>
         Create a new room
       <% end %>
+</div>
+</div>
 </div>
