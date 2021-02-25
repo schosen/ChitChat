@@ -33,9 +33,6 @@ $(function () {
           } else {
             content.find('[data-role="message-media-img"]').remove();
           }
-          
-          console.log(data.username);
-
 
           // content.find('[data-role="user-avatar"]').attr({"src": data.profile_pic_url, "onerror": "this.onerror=null;this.src='<%= error_profile_pic %>';"});
           content.find('[data-role="user-avatar"]').attr("src", data.avatar_url);
