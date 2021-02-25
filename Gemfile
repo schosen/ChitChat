@@ -71,4 +71,6 @@ gem 'devise'
 gem 'simple_form'
 gem 'jquery-rails'
 gem 'redis'
+gem 'turbolinks'
+gem 'rails_emoji_picker'
 
