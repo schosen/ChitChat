@@ -44,6 +44,27 @@
   align-self: left;
 }
 
+.avatar {
+  object-fit: cover !important;
+  width:35px !important;
+  height:35px !important;
+ }
+
+.container3{
+  border-style: solid;
+  border-color: rgba(130, 130, 130, 0.694);
+  border-width: 0.5px;
+  min-width: fit-content;
+  text-align: left;
+  margin-top: 2%;
+  margin-left: 2%;
+  margin-right: 15%;
+  padding: 50px;
+  background-image: linear-gradient(to bottom right,#c4c4c427, white);
+  box-shadow: 4px 4px #504d4d97;
+  border-radius: 15px;
+}
+
 .left-padding {
   margin-left: 10px;
 }
@@ -447,6 +468,10 @@
 
   .link-text {
     color: grey;
+  }
+
+  .profile_avatar {
+    size: 1ch;
   }
   
   /* The typing effect */

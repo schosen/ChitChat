@@ -12,12 +12,12 @@
           <div class="row no-gutters">
             <div class="col-auto text-center">
 
-              <% if current_user.avatar.attached? %>
-                <%= image_tag current_user.avatar, size: 50 %>
-                <% else %>
-                  <%= image_tag "default-profile.png", size: 50 %>
-                <% end %>
-
+            <% post_user_avatar = room_message.user.avatar%>
+            <% if post_user_avatar.attached? %>
+              <%= image_tag post_user_avatar, size: 50 %>
+            <% else %>
+              <%= image_tag "default-profile.png", size: 50 %>
+            <% end %>
             </div>
 
             <div class="col">
@@ -64,7 +64,6 @@
   <% end %>
 
   <div class="media-preview"></div>
-
     <%= link_to new_room_path, class: "btn btn-primary" do %>
       Bored? Try creating a new room
     <% end %> 
@@ -76,7 +75,7 @@
   <div class="chat-message-container">
     <div class="row no-gutters">
       <div class="col-auto text-center">
-        <img src="" class="avatar" alt="" data-role="user-avatar">
+        <img src="" alt="" data-role="user-avatar" style="width: 50px;">
       </div>
 
       <div class="col">

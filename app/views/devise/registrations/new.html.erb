@@ -1,21 +1,29 @@
-<h2>Sign up</h2>
-
+<div class="container">
+  <div class="row align-items-center">
+    <div class="col">
+    <div class="container">
+    <div class="homepage-logo">
+    <img class="center-block" src="https://i.imgur.com/XJ08cL4.png"  alt="ChitChat">
+    </div>
+    </div>
+    <h1 class="tagline">Chat with friends, old and new on ChitChat!</h1>
+    </div>
+    <div class="col">
+    <div class="container2">
+    <div class="signup bolder">Create your account!</div>
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
-
 <div class="form-inputs">
-  <div class="row">
-    <div class="col-sm-4">
+  <div class="row justify-content-center">
+    <div class="col-8">
       <%= f.input :first_name%>
       <%= f.input :last_name%>
-
       <%= f.input :username,
                   required: true %>
       <%= f.input :email,
                   required: true,
                   autofocus: true,
                   input_html: { autocomplete: "email" }%>
-
       <%= f.input :password,
                   required: true,
                   hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
@@ -28,6 +36,7 @@
   </div>
 </div>
     <div class="form-actions">
-      <%= f.button :submit, "Sign up", class: 'btn btn-success' %>
+      <%= f.button :submit, "Sign up", class: 'signbut bolder' %><br>
+      Already have an account? <%= link_to "Login", new_session_path(resource_name),:method => :get %>
     </div>
   <% end %>
