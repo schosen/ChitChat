@@ -1,12 +1,13 @@
 
-<br>
-<div class="left-padding">
-    <% if current_user.avatar.attached? %>
-        <%= image_tag current_user.avatar, class: "profile_avatar"%>
+<div class="container">
+<div class="row align-items-center">
+<div class="col">
+    <% if @user.avatar.attached? %>
+        <%= image_tag @user.avatar, class: "img-thumbnail" %>
     <% else %>
-        <%= image_tag "default-profile.png", class: "profile_avatar"%>
+        <%= image_tag "default-profile.png", class: "img-thumbnail"%>
     <% end %>
-    <h1 class="header-text"><%= @user.first_name %> <%= @user.last_name %></h1>
+    <h1 class="header-text2"><%= @user.first_name %> <%= @user.last_name %></h1>
 
         <% if @user.id == current_user.id %>
             <%= link_to 'Edit bio', users_path , class: "link-text"%>
@@ -14,9 +15,11 @@
 
         | <%= link_to "Back", :back, class: "link-text" %>
 </div>
-<br>
-<br>
-    <div class="left-container">
+<div class="col">
+<div class="left-container"
         <h5> About me... </h5>
         <h4><%= current_user.bio %></h4>
-    </div>
+</div>
+</div>
+</div>
+</div>
